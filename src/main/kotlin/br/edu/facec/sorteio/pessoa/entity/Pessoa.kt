@@ -3,7 +3,7 @@ package br.edu.facec.sorteio.pessoa.entity
 import java.time.LocalDate
 import java.util.UUID
 
-class Pessoa private constructor(
+class Pessoa constructor(
     val id: UUID,
     private val nome: String,
     private val telefone: String,
@@ -13,6 +13,18 @@ class Pessoa private constructor(
     private var nascimento: LocalDate? = null
     private var endereco: String? = null
 
+    init {
+        if (nome.isBlank()) {
+            throw IllegalArgumentException("Nome da pessoa deve ser informado.")
+        }
+        if (telefone.isBlank()) {
+            throw IllegalArgumentException("Telefone da pessoa deve ser informado.")
+        }
+        if (email.isBlank()) {
+            throw IllegalArgumentException("E-mail da pessoa deve ser informado.")
+        }
+    }
+
     fun hasId(id: UUID): Boolean {
         return this.id == id
     }
@@ -21,18 +33,21 @@ class Pessoa private constructor(
         return nascimento != null && nascimento!!.isBefore(data)
     }
 
-    companion object {
-        operator fun invoke(id: UUID, nome: String, telefone: String, email: String): Pessoa {
-            if (nome.isBlank()) {
-                throw IllegalArgumentException("Nome da pessoa deve ser informado.")
-            }
-            if (telefone.isBlank()) {
-                throw IllegalArgumentException("Telefone da pessoa deve ser informado.")
-            }
-            if (email.isBlank()) {
-                throw IllegalArgumentException("E-mail da pessoa deve ser informado.")
-            }
-            return Pessoa(id, nome, telefone, email)
-        }
-    }
+//    companion object {
+
+//        operator fun invoke(id: UUID, nome: String, telefone: String, email: String): Pessoa {
+//          // Alternativa ao init {}
+
+//            if (nome.isBlank()) {
+//                throw IllegalArgumentException("Nome da pessoa deve ser informado.")
+//            }
+//            if (telefone.isBlank()) {
+//                throw IllegalArgumentException("Telefone da pessoa deve ser informado.")
+//            }
+//            if (email.isBlank()) {
+//                throw IllegalArgumentException("E-mail da pessoa deve ser informado.")
+//            }
+//            return Pessoa(id, nome, telefone, email)
+//        }
+//    }
 }
