@@ -7,10 +7,11 @@ class Pessoa constructor(
     val id: UUID,
     private val nome: String,
     private val telefone: String,
-    private val email: String
+    private val email: String,
+    private var nascimento: LocalDate? = null
 ) {
     private var cpf: String? = null
-    private var nascimento: LocalDate? = null
+    //private var nascimento: LocalDate? = null
     private var endereco: String? = null
 
     init {
