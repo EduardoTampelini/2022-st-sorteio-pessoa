@@ -49,49 +49,49 @@ internal class PessoaTest{
 
     }
 
-    @Test
-    internal fun email_da_pessoa_nao_deve_ser_vazio() {
-        assertThatThrownBy{
-            Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "",null)
-        }.isInstanceOf(IllegalArgumentException::class.java).hasMessage("E-mail da pessoa deve ser informado.")
-    }
-    @Test
-    internal fun telefone_da_pessoa_nao_deve_ser_vazio() {
-        assertThatThrownBy{
-            Pessoa(UUID.randomUUID(), "Astolfo", "", "ast@gmail.com",null)
-        }.isInstanceOf(IllegalArgumentException::class.java).hasMessage("Telefone da pessoa deve ser informado.")
-    }
+    /* @Test
+     internal fun email_da_pessoa_nao_deve_ser_vazio() {
+         assertThatThrownBy{
+             Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "",null)
+         }.isInstanceOf(IllegalArgumentException::class.java).hasMessage("E-mail da pessoa deve ser informado.")
+     }
+     @Test
+     internal fun telefone_da_pessoa_nao_deve_ser_vazio() {
+         assertThatThrownBy{
+             Pessoa(UUID.randomUUID(), "Astolfo", "", "ast@gmail.com",null)
+         }.isInstanceOf(IllegalArgumentException::class.java).hasMessage("Telefone da pessoa deve ser informado.")
+     }
 
-    @Test
-    internal fun data_de_nasciento_normal() {
-        var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-        var date : LocalDate = LocalDate.parse("31-12-2022", formatter)
+     @Test
+     internal fun data_de_nasciento_normal() {
+         var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+         var date : LocalDate = LocalDate.now()
 
-        val unit = Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "ast@gmail.com",LocalDate.parse("30-06-2000",formatter))
+         val unit = Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "ast@gmail.com",LocalDate.parse("30-06-2000",formatter))
 
-        assertThat(unit.hasNascimentoLessThan(date)).isTrue()
+         assertThat(unit.hasNascimentoLessThan(date)).isTrue()
 
-    }
-    @Test
-    internal fun data_de_nasciento_acima() {
-        var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-        var date : LocalDate = LocalDate.parse("31-12-2022", formatter)
+     }
+     @Test
+     internal fun data_de_nasciento_acima() {
+         var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+         var date : LocalDate = LocalDate.parse("31-12-2022", formatter)
 
-        val unit = Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "ast@gmail.com",LocalDate.parse("30-06-2023",formatter))
+         val unit = Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "ast@gmail.com",LocalDate.parse("30-06-2023",formatter))
 
-        assertThat(unit.hasNascimentoLessThan(date)).isFalse()
+         assertThat(unit.hasNascimentoLessThan(date)).isFalse()
 
-    }
-    @Test
-    internal fun data_de_nasciento_null() {
-        var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-        var date : LocalDate = LocalDate.parse("31-12-2022", formatter)
+     }
+     @Test
+     internal fun data_de_nasciento_null() {
+         var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+         var date : LocalDate = LocalDate.parse("31-12-2022", formatter)
 
-        val unit = Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "ast@gmail.com",null)
+         val unit = Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "ast@gmail.com",null)
 
-        assertThat(unit.hasNascimentoLessThan(date)).isFalse()
+         assertThat(unit.hasNascimentoLessThan(date)).isFalse()
 
-    }
+     }*/
     }
 
 
