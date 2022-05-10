@@ -49,7 +49,7 @@ internal class PessoaTest{
 
     }
 
-    /* @Test
+    @Test
      internal fun email_da_pessoa_nao_deve_ser_vazio() {
          assertThatThrownBy{
              Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "",null)
@@ -75,7 +75,7 @@ internal class PessoaTest{
      @Test
      internal fun data_de_nasciento_acima() {
          var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-         var date : LocalDate = LocalDate.parse("31-12-2022", formatter)
+         var date : LocalDate = LocalDate.now()
 
          val unit = Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "ast@gmail.com",LocalDate.parse("30-06-2023",formatter))
 
@@ -83,15 +83,26 @@ internal class PessoaTest{
 
      }
      @Test
-     internal fun data_de_nasciento_null() {
+     internal fun data_de_nasciento_igual_a_data() {
          var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
-         var date : LocalDate = LocalDate.parse("31-12-2022", formatter)
+         var date : LocalDate = LocalDate.now()
 
-         val unit = Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "ast@gmail.com",null)
+         val unit = Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "ast@gmail.com",LocalDate.now())
 
          assertThat(unit.hasNascimentoLessThan(date)).isFalse()
 
-     }*/
+     }
+    @Test
+    internal fun data_de_nasciento_null() {
+        var formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
+        var date : LocalDate = LocalDate.now()
+
+        val unit = Pessoa(UUID.randomUUID(), "Astolfo", "4499884321", "ast@gmail.com",null)
+
+        assertThat(unit.hasNascimentoLessThan(date)).isFalse()
+
+    }
+
     }
 
 
